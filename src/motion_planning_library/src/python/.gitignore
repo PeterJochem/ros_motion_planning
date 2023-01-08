@@ -1,5 +1,0 @@
-*.pyc
-.coverage
-do/.coverage
-tests/coverage_report/*
-venv

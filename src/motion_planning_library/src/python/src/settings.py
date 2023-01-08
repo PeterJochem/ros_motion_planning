@@ -1,6 +1,0 @@
-import os
-ROOT_FRAME_NAME = "world"
-PATH_TO_MODULE = os.path.dirname(__file__)
-MESH_FILE_PATH_PREFIX = f"{PATH_TO_MODULE}/../../mesh_files/"
-UR5_MESH_FILE_PATH = f"{MESH_FILE_PATH_PREFIX}/UR5/"
-TURTLEBOT_MESH_FILE_PATH = f"{MESH_FILE_PATH_PREFIX}/Turtlebot/"

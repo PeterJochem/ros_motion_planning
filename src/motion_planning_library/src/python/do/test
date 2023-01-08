@@ -1,5 +1,0 @@
-path_prefix=${PWD}
-export COVERAGE_RCFILE="${path_prefix}/do/.coveragerc"
-export COVERAGE_FILE="${path_prefix}/tests/coverage_report/.coverage"
-cd ./src
-coverage run -m pytest -rP ../tests
