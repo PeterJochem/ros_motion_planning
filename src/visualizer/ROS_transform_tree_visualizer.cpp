@@ -21,7 +21,9 @@ namespace geometry {
             
             std::vector<Transform> transforms = tree->all_transforms();
             for (int i = 0; i < transforms.size(); i++) {
-                message.transforms.push_back(transforms[i].stamp_and_to_ros());
+
+                // FIX ME - need to use conversions method to do this now
+               // message.transforms.push_back(transforms[i].stamp_and_to_ros());
             }
             
             pub.publish(message);
