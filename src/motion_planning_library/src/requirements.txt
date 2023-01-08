@@ -1,0 +1,12 @@
+catkin-pkg==0.5.2
+distro==1.7.0
+docutils==0.19
+packaging==21.3
+ply==3.11
+pyparsing==3.0.9
+python-dateutil==2.8.2
+PyYAML==6.0
+rospkg==1.4.0
+sip==6.6.2
+six==1.16.0
+toml==0.10.2

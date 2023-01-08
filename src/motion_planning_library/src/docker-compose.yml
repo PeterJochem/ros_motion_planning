@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  motion_planning_development:
+    container_name: motion_planning_development
+    build: .
+    volumes:
+      - ./..:/motion_planning
+
+volumes:
+  motion_planning_code:

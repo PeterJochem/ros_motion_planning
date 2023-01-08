@@ -1,0 +1,3 @@
+[submodule "src/cpp/fcl_conversions"]
+	path = src/cpp/fcl_conversions
+	url = git@github.com:PeterJochem/fcl_conversions.git

@@ -1,0 +1,10 @@
+[run]
+source = ../src
+omit = ../tests/*
+branch = True
+
+[report]
+ignore_errors = True
+
+[html]
+directory = tests/coverage_report
