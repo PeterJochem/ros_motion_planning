@@ -1,3 +1,6 @@
 [submodule "motion_planning_library"]
 	path = motion_planning_library
 	url = git@github.com:PeterJochem/motion_planning_library.git
+[submodule "src/motion_planning_library"]
+	path = src/motion_planning_library
+	url = git@github.com:PeterJochem/motion_planning_library.git
