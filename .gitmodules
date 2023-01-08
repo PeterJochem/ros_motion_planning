@@ -4,3 +4,6 @@
 [submodule "src/motion_planning_library"]
 	path = src/motion_planning_library
 	url = git@github.com:PeterJochem/motion_planning_library.git
+[submodule "src/ros_conversions"]
+	path = src/ros_conversions
+	url = git@github.com:PeterJochem/ros_conversions.git
