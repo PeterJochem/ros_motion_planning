@@ -10,7 +10,7 @@ git clone --recurse-submodules git@github.com:PeterJochem/ros_motion_planning.gi
 sudo apt install libeigen3-dev=3.3.7-2
 sudo apt install libgtest-dev=1.10.0-2
 sudo apt install cmake=3.16.3-1ubuntu1
-(ros noetic) FIX ME
+sudo apt install ros-noetic-desktop-full=1.5.0-1focal.20221209.231810
 
 
 # Building the Code
