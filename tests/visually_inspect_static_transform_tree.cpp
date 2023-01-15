@@ -1,8 +1,7 @@
-#include <iostream>>
+#include <iostream>
 
-#include "transform/ROS_transform_tree_visualizer.hpp"
+#include "visualizer/ROS_transform_tree_visualizer.hpp"
 #include "transform/static_transform_tree.hpp"
-
 
 
 int main(int argc, char** argv) {
@@ -13,7 +12,6 @@ int main(int argc, char** argv) {
 
 
     ros::init(argc, argv, "my_node_name");
-
 
     Frame root = Frame("world");
     StaticTransformTree tree = StaticTransformTree(root);
@@ -37,7 +35,6 @@ int main(int argc, char** argv) {
 
     
     ros::spin();
-
 
     return 0;
 }

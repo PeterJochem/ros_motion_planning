@@ -1,4 +1,5 @@
 #include "visualizer/ROS_transform_tree_visualizer.hpp"
+#include "ros_conversions_1/conversions.hpp"
 
 namespace geometry {
 
@@ -23,7 +24,7 @@ namespace geometry {
             for (int i = 0; i < transforms.size(); i++) {
 
                 // FIX ME - need to use conversions method to do this now
-               // message.transforms.push_back(transforms[i].stamp_and_to_ros());
+                message.transforms.push_back( conversions::stamp_and_to_ros(transforms[i]));
             }
             
             pub.publish(message);
