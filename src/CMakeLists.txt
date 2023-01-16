@@ -1,6 +1,6 @@
 
 add_subdirectory(motion_planning_library)
-add_subdirectory(ros_conversions_1)
+add_subdirectory(ros_conversions)
 
 add_subdirectory(visualizer)
 

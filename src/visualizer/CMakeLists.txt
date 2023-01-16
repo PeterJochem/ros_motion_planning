@@ -8,7 +8,7 @@ add_library(visualizer
 #find_package(ros_conversions)
 #include_directories(${ros_conversions_INCLUDE_DIRS}
 if(NOT DEFINED ${ros_conversions_INCLUDE_DIRS})
-  set(ros_conversions_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/../ros_conversions_1/include" CACHE INTERNAL "")
+  set(ros_conversions_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/../ros_conversions/include" CACHE INTERNAL "")
 endif(NOT DEFINED ${ros_conversions_INCLUDE_DIRS})
 
 include_directories(${ros_conversions_INCLUDE_DIRS})
