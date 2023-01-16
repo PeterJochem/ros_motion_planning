@@ -13,6 +13,5 @@ endif(NOT DEFINED ${ros_conversions_INCLUDE_DIRS})
 
 include_directories(${ros_conversions_INCLUDE_DIRS})
 
-
-target_link_libraries(visualizer PUBLIC ${roscpp_LIBRARIES} geometry ) #ros_conversions_1)
+target_link_libraries(visualizer PUBLIC ${roscpp_LIBRARIES} geometry)
 target_include_directories(visualizer PUBLIC /opt/ros/noetic/include)

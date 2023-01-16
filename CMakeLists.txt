@@ -4,8 +4,9 @@ project(ros_motion_planning)
 find_package(roscpp)
 #set(CMAKE_CXX_STANDARD 11)
 
+#find_package(geometry)
+#include_directories(${geometry_INCLUDE_DIRS}
 set(geometry_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/src/motion_planning_library/src/cpp/geometry/include/" CACHE INTERNAL "")
-message("${geometry_INCLUDE_DIRS}")
 
 include_directories(include src/motion_planning_library/src/cpp/geometry/include/)
 include_directories(${roscpp_INCLUDE_DIRS})
