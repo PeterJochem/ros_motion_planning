@@ -3,6 +3,8 @@
 
 add_library(visualizer
         ROS_transform_tree_visualizer.cpp
+        ROS_robot_visualizer.cpp
+        ROS_mesh_visualizer.cpp
 )
 
 #find_package(ros_conversions)
@@ -13,5 +15,5 @@ endif(NOT DEFINED ${ros_conversions_INCLUDE_DIRS})
 
 include_directories(${ros_conversions_INCLUDE_DIRS})
 
-target_link_libraries(visualizer PUBLIC ${roscpp_LIBRARIES} geometry)
+target_link_libraries(visualizer PUBLIC ${roscpp_LIBRARIES} geometry robot)
 target_include_directories(visualizer PUBLIC /opt/ros/noetic/include)

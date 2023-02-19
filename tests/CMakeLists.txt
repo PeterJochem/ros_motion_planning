@@ -1,3 +1,3 @@
 add_executable(visually_inspect_static_transform_tree visually_inspect_static_transform_tree.cpp)
 target_include_directories(visually_inspect_static_transform_tree PUBLIC ${roscpp_INCLUDE_DIRS})
-target_link_libraries(visually_inspect_static_transform_tree visualizer ${roscpp_LIBRARIES} ros_conversions)
+target_link_libraries(visually_inspect_static_transform_tree visualizer ${roscpp_LIBRARIES} ros_conversions robot)

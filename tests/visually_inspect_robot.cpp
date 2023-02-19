@@ -7,13 +7,9 @@
 
 int main(int argc, char** argv) {
 
-    std::cout << "Hello World!" << std::endl;
-
     using namespace geometry;
 
-
-    ros::init(argc, argv, "my_node_name");
-
+    ros::init(argc, argv, "visualize_robot");
 
     Frame root = Frame("world");
     StaticTransformTree tree = StaticTransformTree(root);
