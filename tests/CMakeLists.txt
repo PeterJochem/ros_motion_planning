@@ -1,3 +1,8 @@
+find_package(fcl REQUIRED)
+
+
 add_executable(visually_inspect_static_transform_tree visually_inspect_static_transform_tree.cpp)
+target_link_libraries(visually_inspect_static_transform_tree fcl) 
+
 target_include_directories(visually_inspect_static_transform_tree PUBLIC ${roscpp_INCLUDE_DIRS})
-target_link_libraries(visually_inspect_static_transform_tree visualizer ${roscpp_LIBRARIES} ros_conversions robot)
+target_link_libraries(visually_inspect_static_transform_tree visualizer ${roscpp_LIBRARIES} geometry ros_conversions robot collision_checking)

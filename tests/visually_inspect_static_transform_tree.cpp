@@ -3,7 +3,7 @@
 #include "transform/static_transform_tree.hpp"
 #include "robots/UR5.hpp"
 #include "visualizer/ROS_robot_visualizer.hpp"
-
+#include "collision_checking/fcl_robot_internal_collision_checker.hpp"
 
 
 void simple_tree() { 
@@ -40,7 +40,18 @@ void visualize_UR5() {
     // Create UR5
     // Put all the frames of the UR5 into the transform tree.
     Robot::UR_5 my_robot = Robot::UR_5();
-    
+
+    // construct transform tree
+    Frame root = Frame("world");
+    StaticTransformTree tree = StaticTransformTree(root);
+
+    auto transforms = my_robot.get_ordered_transforms();
+    for (int i = 0; i < transforms.size(); i++) {
+        tree.add(transforms[i]);
+    }
+
+    FCLRobotInternalCollisionChecker checker = FCLRobotInternalCollisionChecker(my_robot, &tree);
+
     ROSRobotVisualizer visualizer = ROSRobotVisualizer(&my_robot, "/tf");
 
     visualizer.visualize();
@@ -48,9 +59,26 @@ void visualize_UR5() {
     int i  = 0;
     while (true) {
 
-         visualizer.set_joint_angles({i/5., 0., 0., 0., 0., 0.});
+         visualizer.set_joint_angles({0., 0., 0., i/5., i/5., 0.});
+
+
+         // need to update the TransformTree
+         auto transforms = my_robot.get_ordered_transforms();
+         for (int i = 0; i < transforms.size(); i++) {
+            
+            auto transform = transforms[i];
+            tree.set_transform(transform, transform.getPosition(), transform.getEulerAngles());
+         }
+         
+         
          i++;
-         sleep(1.5);
+         if (checker.check()) {
+            std::cout << "\n\nCollision \n\n" << std::endl;
+         }
+         else {
+            std::cout << "No collision" << std::endl;
+         }
+         sleep(0.01);
     }
 
     ros::spin();
