@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16.3)
 project(ros_motion_planning)
 
 find_package(roscpp)
-#set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 20)
 
 #find_package(geometry)
 #include_directories(${geometry_INCLUDE_DIRS}
