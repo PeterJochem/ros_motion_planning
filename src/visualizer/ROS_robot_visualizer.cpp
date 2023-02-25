@@ -7,10 +7,11 @@ geometry::ROSRobotVisualizer::ROSRobotVisualizer() {
 }
 
 
-geometry::ROSRobotVisualizer::ROSRobotVisualizer(Robot::Robot1* robot, std::string topic_name) {
+geometry::ROSRobotVisualizer::ROSRobotVisualizer(Robot::Robot1* robot, std::string topic_name, float publishing_rate) {
 
     this->robot = robot;
     this->topic_name = topic_name;
+    this->publishing_rate = publishing_rate;
 
     Frame root = Frame("world");
     this->tree = new StaticTransformTree(root);
@@ -20,8 +21,8 @@ geometry::ROSRobotVisualizer::ROSRobotVisualizer(Robot::Robot1* robot, std::stri
         this->tree->add(*itr);
     }
 
-    this->tree_visualizer = new ROSTransformTreeVisualizer(tree, "/tf");
-    this->mesh_visualizer = new ROSMeshVisualizer(this->robot->get_links(), "/robot_meshes");
+    this->tree_visualizer = new ROSTransformTreeVisualizer(tree, "/tf", publishing_rate);
+    this->mesh_visualizer = new ROSMeshVisualizer(this->robot->get_links(), "/robot_meshes", publishing_rate);
 }
 
 

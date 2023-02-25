@@ -3,7 +3,7 @@
 
 //namespace geometry {
 
-    geometry::ROSTransformTreeVisualizer::ROSTransformTreeVisualizer(geometry::TransformTree* tree, std::string topic_name): topic_name(topic_name) {
+    geometry::ROSTransformTreeVisualizer::ROSTransformTreeVisualizer(geometry::TransformTree* tree, std::string topic_name, float publishing_rate): topic_name(topic_name), publishing_rate(publishing_rate) {
         this->tree = tree;
     }
 

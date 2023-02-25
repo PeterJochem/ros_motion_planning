@@ -26,7 +26,7 @@ void simple_tree() {
     tree.add(b_to_c);
 
     
-    ROSTransformTreeVisualizer visualizer = ROSTransformTreeVisualizer(&tree, "/tf");
+    ROSTransformTreeVisualizer visualizer = ROSTransformTreeVisualizer(&tree, "/tf", 1.);
 
     visualizer.visualize();
     
@@ -52,15 +52,14 @@ void visualize_UR5() {
 
     FCLRobotInternalCollisionChecker checker = FCLRobotInternalCollisionChecker(my_robot, &tree);
 
-    ROSRobotVisualizer visualizer = ROSRobotVisualizer(&my_robot, "/tf");
+    ROSRobotVisualizer visualizer = ROSRobotVisualizer(&my_robot, "/tf", 1.);
 
     visualizer.visualize();
 
     int i  = 0;
     while (true) {
 
-         visualizer.set_joint_angles({0., 0., 0., i/5., i/5., 0.});
-
+        visualizer.set_joint_angles({0., 0., 0., i/5., i/5., 0.});
 
          // need to update the TransformTree
          auto transforms = my_robot.get_ordered_transforms();
@@ -78,7 +77,6 @@ void visualize_UR5() {
          else {
             std::cout << "No collision" << std::endl;
          }
-         sleep(0.01);
     }
 
     ros::spin();

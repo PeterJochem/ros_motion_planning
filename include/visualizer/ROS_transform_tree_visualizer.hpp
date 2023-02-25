@@ -14,13 +14,14 @@ namespace geometry {
 class ROSTransformTreeVisualizer: TransformTreeVisualizer {
 
     public:
-        ROSTransformTreeVisualizer(TransformTree* tree, std::string topic_name);
+        ROSTransformTreeVisualizer(TransformTree* tree, std::string topic_name, float publishing_rate);
         void visualize();
         void stop_visualization();
 
     private:
         std::string topic_name;
-        std::thread publishing_thread; 
+        std::thread publishing_thread;
+        float publishing_rate;
         void publish();
         void stop_publishing();
 };

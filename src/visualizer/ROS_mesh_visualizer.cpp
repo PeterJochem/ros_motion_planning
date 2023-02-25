@@ -2,7 +2,7 @@
 #include "ros_conversions/ros_conversions.hpp"
 
 
-geometry::ROSMeshVisualizer::ROSMeshVisualizer(std::vector<Robot::Link> links, std::string topic_name): links(links), topic_name(topic_name) {
+geometry::ROSMeshVisualizer::ROSMeshVisualizer(std::vector<Robot::Link> links, std::string topic_name, float publishing_rate): links(links), topic_name(topic_name), publishing_rate(publishing_rate) {
 
 }
 
@@ -15,6 +15,14 @@ void geometry::ROSMeshVisualizer::visualize() {
         
     while (true) {
 
+        // Remove the old message
+        message.markers.clear();
+        auto marker = visualization_msgs::Marker();
+        marker.action = marker.DELETEALL;
+        message.markers.push_back(marker);
+        publisher.publish(message);
+        message.markers.clear();
+
         for (int i = 0; i < links.size(); i++) {
             
             auto marker = ros_conversions::to_ros(links[i].get_visual_mesh());
@@ -22,13 +30,6 @@ void geometry::ROSMeshVisualizer::visualize() {
         }
         
         publisher.publish(message);
-        message.markers.clear();
-        sleep(0.5);
-        // Remove the old message
-        auto marker = visualization_msgs::Marker();
-        marker.action = marker.DELETEALL;
-        message.markers.push_back(marker);
-        publisher.publish(message);
-        message.markers.clear();
+        sleep(publishing_rate);
     }
 }

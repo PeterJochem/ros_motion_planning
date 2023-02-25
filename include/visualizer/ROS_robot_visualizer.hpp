@@ -18,7 +18,7 @@ class ROSRobotVisualizer {
 
     public:
         ROSRobotVisualizer();
-        ROSRobotVisualizer(Robot::Robot1*, std::string topic_name);
+        ROSRobotVisualizer(Robot::Robot1*, std::string topic_name, float publishing_rate);
         void visualize();
         void stop_visualization();
         void set_joint_angles(std::vector<float> angles);
@@ -31,6 +31,7 @@ class ROSRobotVisualizer {
         Robot::Robot1* robot;
         geometry::ROSTransformTreeVisualizer* tree_visualizer;
         geometry::ROSMeshVisualizer* mesh_visualizer;
+        float publishing_rate;
         StaticTransformTree* tree;
         void publish();
         void stop_publishing();

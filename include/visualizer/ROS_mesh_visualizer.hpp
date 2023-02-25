@@ -15,14 +15,15 @@ namespace geometry {
 class ROSMeshVisualizer {
 
     public:
-        ROSMeshVisualizer(std::vector<Robot::Link>, std::string topic_name);
+        ROSMeshVisualizer(std::vector<Robot::Link>, std::string topic_name, float publishing_rate);
         void visualize();
         void stop_visualization();
 
     private:
         std::string topic_name;
         std::vector<Robot::Link> links;
-        std::thread publishing_thread; 
+        std::thread publishing_thread;
+        float publishing_rate;
         void publish();
         void stop_publishing();
 };
