@@ -51,15 +51,15 @@ void visualize_UR5() {
     }
 
     FCLRobotInternalCollisionChecker checker = FCLRobotInternalCollisionChecker(my_robot, &tree);
-
     ROSRobotVisualizer visualizer = ROSRobotVisualizer(&my_robot, "/tf", 1.);
 
     visualizer.visualize();
-
     int i  = 0;
+
     while (true) {
 
-        visualizer.set_joint_angles({0., 0., 0., i/5., i/5., 0.});
+        //visualizer.set_joint_angles({0., 0., 0., i/5., i/5., 0.});
+        visualizer.set_joint_angles({0., -0.5, -1., 0., 1.57, 0.0});
 
          // need to update the TransformTree
          auto transforms = my_robot.get_ordered_transforms();
@@ -72,10 +72,10 @@ void visualize_UR5() {
          
          i++;
          if (checker.check()) {
-            std::cout << "\n\nCollision \n\n" << std::endl;
+          //  std::cout << "\n\nCollision \n\n" << std::endl;
          }
          else {
-            std::cout << "No collision" << std::endl;
+          //  std::cout << "No collision" << std::endl;
          }
     }
 
